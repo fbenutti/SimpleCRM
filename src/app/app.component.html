@@ -1,0 +1,40 @@
+<h1 class="c1">{{title}}</h1>
+
+<div class="bg-success" *ngIf="successMsg; then updatedMsg; else errorMsg">
+  user added succefully
+</div>
+
+<ng-template #updatedMsg>
+  user updated
+</ng-template>
+
+<ng-template #errorMsg>
+  user was not added
+</ng-template>
+
+<h2>Learning ngFor</h2>
+
+<ul>
+  <li *ngFor="let contact of contacts; index as i; first as f; last as l; even as e; odd as od">
+    <!-- <div *ngIf="f"> this is first record</div> -->
+    <div *ngIf="e" style="background-color: #ddd;">
+      {{ i }}: {{ contact.firstName }} || {{ contact.lastName }}
+    </div>
+    <div *ngIf="od" style="background-color: #f2f2f2;">
+      {{ i }}: {{ contact.firstName }} || {{ contact.lastName }}
+    </div>
+    <!-- <div *ngIf="l"> this is last record</div> -->
+  </li>
+</ul>
+
+<h2>Learning ngSwitch</h2>
+
+<div [ngSwitch]="superPower">
+  <div *ngSwitchCase="'WonderWoman'">Display WonderWoman super powers</div>
+  <div *ngSwitchCase="'SuperMan'">Display SuperMan super powers</div>
+  <div *ngSwitchCase="'heMan'">Display heMan super powers</div>
+  <div *ngSwitchCase="'SpiderWoman'">Display SpiderWoman super powers</div>
+  <div *ngSwitchDefault>No super powers</div>
+</div>
+
+<router-outlet></router-outlet>
