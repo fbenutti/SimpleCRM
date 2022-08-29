@@ -1,5 +1,10 @@
 <h1 class="c1">{{title}}</h1>
 
+<input [(ngModel)]="userName">
+<div *ngIf="month > 10"> {{ userName }} </div>
+
+<br><br><br>
+
 <div>{{ pageHeading }}</div>
 
 <p [style.color]="txtColorVal">Page Count value is {{ pageCount }}</p>
@@ -45,12 +50,25 @@
   </tr>
 </table>
 
+<button (click)="sayHello()">Me aperte</button>
+<br>
+<div (mouseover)="highlightBGcolor(1, 3, 4)">Highlight me please</div>
+
+<input type="text" (focus)="inputBox()">
+
+
+<br>
+<br>
 <!-- Preciso aprender isso aqui - na vdd, revisar né,
 pq eu já fiz isso no admin kkk  -->
-<!-- <input type="text" [value]="name">
-<p>{{name}}</p> -->
+<!-- E era assim que fazia! Esse é o two-way databinding das antigas!
+[value] e depois o event que quer -->
+<input title="Tenta digitar 'Felipe'" type="text"
+[value]="firstName" (input)="getValue($event)">
+<p>{{firstName}}</p>
 
-<div [ngSwitch]="name">
+
+<div [ngSwitch]="firstName">
     <div *ngSwitchCase="contacts[0].firstName">Felipe fodão</div>
     <div *ngSwitchCase="contacts[1].firstName">Indiano do kraio - fodão</div>
     <div *ngSwitchCase="contacts[2].firstName">Solo un culo</div>

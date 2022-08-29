@@ -35,11 +35,29 @@ export class AppComponent {
   styleClsProp: string = 'c3';
   conditionClsProp: string = 'c4';
 
-  name = 'ARC';
+  userName = 'ARC';
+  month = 12;
 
+  firstName = '';
 
   getClsName(){
     return 'c3';
+  }
+
+  sayHello() {
+    console.log("Hello from Felipe Tutoriais")
+  }
+
+  highlightBGcolor(a:number, b:number, c:number){
+    console.log("I'm being highlighted + soma: "+(a+b+c))
+  }
+
+  inputBox(){
+    console.log("This is input box")
+  }
+
+  getValue(event: Event) {
+    this.firstName = (event.target as HTMLInputElement).value;
   }
 
   contacts = [
