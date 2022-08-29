@@ -1,5 +1,65 @@
 <h1 class="c1">{{title}}</h1>
 
+<div>{{ pageHeading }}</div>
+
+<p [style.color]="txtColorVal">Page Count value is {{ pageCount }}</p>
+
+<img [src]="imgUrl" [alt]="imgAlt" >
+
+<div *ngIf="isUserLoggedIn">
+  <!-- <div>{{ userObject.firstName }} {{ userObject.lastName }}</div> -->
+  <div [innerHTML]="userObject.firstName"></div>
+</div>
+
+<br>
+
+<table style="background-color: #ddd;">
+  <tr>
+    <td>ContactId</td>
+    <td>Contact Name</td>
+    <td>Contact Email</td>
+  </tr>
+  <tr>
+    <!-- Assim não funciona, pq o colspan não é uma propriedade conhecida de <td> -->
+    <!-- nesse caso, como td não tem essa propriedade por padrão -->
+    <!-- temos que passar como atributo (attr). Aqui explica bem: -->
+    <!-- https://www.geeksforgeeks.org/what-is-the-difference-between-properties-and-attributes-in-html/ -->
+    <!-- <td [colspan]="colVal">ContactId</td> -->
+    <td [attr.colspan]="colVal">ContactId</td>
+    <td>Contact Email</td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th>ContactId</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+  </tr>
+  <tr *ngFor="let contact of contacts">
+    <td [title]="contact.contactId">{{ contact.contactId }}</td>
+    <td [title]="contact.firstName">{{ contact.firstName }}</td>
+    <td>{{ contact.lastName }}</td>
+  </tr>
+</table>
+
+<!-- Preciso aprender isso aqui - na vdd, revisar né,
+pq eu já fiz isso no admin kkk  -->
+<!-- <input type="text" [value]="name">
+<p>{{name}}</p> -->
+
+<div [ngSwitch]="name">
+    <div *ngSwitchCase="contacts[0].firstName">Felipe fodão</div>
+    <div *ngSwitchCase="contacts[1].firstName">Indiano do kraio - fodão</div>
+    <div *ngSwitchCase="contacts[2].firstName">Solo un culo</div>
+    <div *ngSwitchDefault>Não achou ninguém não</div>
+</div>
+
+<!--
+Tudo comentado para deixar todos os aprendizados registrados
+
 <div class="bg-success" *ngIf="successMsg; then updatedMsg; else errorMsg">
   user added succefully
 </div>
@@ -16,14 +76,14 @@
 
 <ul>
   <li *ngFor="let contact of contacts; index as i; first as f; last as l; even as e; odd as od">
-    <!-- <div *ngIf="f"> this is first record</div> -->
+    <div *ngIf="f"> this is first record</div>
     <div *ngIf="e" style="background-color: #ddd;">
       {{ i }}: {{ contact.firstName }} || {{ contact.lastName }}
     </div>
     <div *ngIf="od" style="background-color: #f2f2f2;">
       {{ i }}: {{ contact.firstName }} || {{ contact.lastName }}
     </div>
-    <!-- <div *ngIf="l"> this is last record</div> -->
+    <div *ngIf="l"> this is last record</div>
   </li>
 </ul>
 
@@ -36,5 +96,36 @@
   <div *ngSwitchCase="'SpiderWoman'">Display SpiderWoman super powers</div>
   <div *ngSwitchDefault>No super powers</div>
 </div>
+
+<div [ngSwitch]="tax">
+  <div *ngSwitchCase="30">Tax is 30%</div>
+  <div *ngSwitchCase="50">Tax is 50%</div>
+  <div *ngSwitchDefault>There is no taxes</div>
+</div>
+
+<h2>Learning ngStyle</h2>
+
+<div [ngStyle]="{'background-color': 'green', 'color' : 'white'}">This is green DIV</div>
+
+<div [ngStyle]="{'background-color' : styleProp}" >This is Dynamic color DIV</div>
+
+<div [ngStyle]="{'color' : txtColor === 'success'? 'green' : 'red'}">This is conditional DIV</div>
+
+
+<h2>Learning ngClass</h2>
+
+<div [ngClass]="'c1'">This is ngClass example</div>
+
+<div [ngClass]="'c1 c2'">This is ngClass Multiple classes example</div>
+
+<div [ngClass]="styleClsProp">This is using variable ngClass example</div>
+
+<div [ngClass]="conditionClsProp === 'c4' ? 'c4' : 'c5'">This is using conditional variable ngClass example</div>
+
+<div [ngClass]="{c4: true, c5: true}">This is using object ngClass example</div>
+
+<div [ngClass]="getClsName()">This is using method ngClass example</div>
+
+-->
 
 <router-outlet></router-outlet>

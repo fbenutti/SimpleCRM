@@ -8,19 +8,49 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'simpleCRM';
 
-  successMsg: boolean = true;
+  pageHeading = 'Welcome to Felipe\'s Tutorial';
 
-  superPower = 'WonderWoman' //string
+  pageCount = 10;
+
+  userObject = {
+    'firstName': 'Felipe',
+    'lastName': 'Tutoriais'
+  };
+
+  colVal = 2;
+
+  imgUrl = 'test.png';
+  imgAlt = 'This is missing Image text';
+  isUserLoggedIn = true;
+
+  txtColorVal = 'blue';
+
+  tax: number = 10;
+  successMsg: boolean = true;
+  superPower = 'SuperMan'; //string
+
+  txtColor: string = 'success';
+  styleProp: string = 'purple';
+
+  styleClsProp: string = 'c3';
+  conditionClsProp: string = 'c4';
+
+  name = 'ARC';
+
+
+  getClsName(){
+    return 'c3';
+  }
 
   contacts = [
     {
-      'firstName': 'ARC',
-      'lastName': 'Felipe',
+      'firstName': 'Felipe',
+      'lastName': 'Benutti',
       'contactId': 1234
     },
     {
-      'firstName': 'ADOKW',
-      'lastName': 'Benutti',
+      'firstName': 'ARC',
+      'lastName': 'ADOKW',
       'contactId': 4321
     },
     {

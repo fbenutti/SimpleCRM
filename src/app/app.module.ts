@@ -7,11 +7,13 @@ import { ProfileModule } from './profile/profile.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective
+    HighlightDirective,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
