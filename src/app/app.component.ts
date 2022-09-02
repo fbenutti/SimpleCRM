@@ -38,6 +38,14 @@ export class AppComponent {
   userName = 'ARC';
   month = 12;
 
+  lowerCaseExample = "TO USANDO CAIXA ALTA... SERÁ? KK";
+
+  upperCaseExample = "learning angular framework!";
+  dateExample = Date.now();
+  jsonExample = { username: "felipe", major: "Angular", experiencie : 10 };
+  currencyExample = 125;
+  percentExample = 0.67635464847;
+
   firstName = '';
 
   getClsName(){

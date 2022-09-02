@@ -6,6 +6,30 @@
 <br><br><br>
 
 <div>{{ pageHeading }}</div>
+<br>
+<h3>Built-In Pipes</h3>
+<div> {{ lowerCaseExample | lowercase }} </div>
+<div> {{ upperCaseExample | uppercase }} </div>
+<div> TitleCase é fera: {{ upperCaseExample | titlecase }} </div>
+
+<div> {{ dateExample | date }} </div>
+<code> {{ jsonExample | json }} </code>
+<div> {{ currencyExample | currency }} </div>
+<div> {{ percentExample | percent }} </div>
+
+<br><br>
+
+<h3>Parameterized Pipes</h3>
+
+<div> {{ currencyExample | currency: 'BRL' }} </div>
+
+<div> {{ dateExample | date: 'dd-MMM-yy' }} </div>
+
+<div> {{ percentExample | percent: '1.2-4' }} </div>
+
+<h3>Chaining Pipes</h3>
+
+<div> {{ dateExample | date: 'dd-MMMM-yy' | uppercase }} </div>
 
 <p [style.color]="txtColorVal">Page Count value is {{ pageCount }}</p>
 
