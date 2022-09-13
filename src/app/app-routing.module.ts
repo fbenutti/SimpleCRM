@@ -1,3 +1,4 @@
+import { ClientsComponent } from './clients/clients.component';
 import { ProductComponent } from './product/product.component';
 
 import { AddLoansComponent } from './add-loans/add-loans.component';
@@ -10,7 +11,8 @@ import { LoansComponent } from './loans/loans.component';
 
 const routes: Routes = [
   { path: 'product/:red', component: ProductComponent  },
-  { path: 'product/:productId/photos/:photoId', component: ProductComponent  }
+  { path: 'product/:productId/photos/:photoId', component: ProductComponent  },
+  { path: 'clients', component: ClientsComponent }
 ];
   // //we will create all our routes here
   // {
