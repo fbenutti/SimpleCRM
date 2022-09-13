@@ -14,6 +14,7 @@ import { LoanTypesComponent } from './loan-types/loan-types.component';
 import { AddLoansComponent } from './add-loans/add-loans.component';
 
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
     UsersComponent,
     LoansComponent,
     LoanTypesComponent,
-    AddLoansComponent
+    AddLoansComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
