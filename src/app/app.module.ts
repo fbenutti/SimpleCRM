@@ -18,6 +18,10 @@ import { ProductComponent } from './product/product.component';
 import { ClientsComponent } from './clients/clients.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminEditComponent } from './admin-edit/admin-edit.component';
+import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { AdminManageComponent } from './admin-manage/admin-manage.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProductComponent,
     ClientsComponent,
     SearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AdminComponent,
+    AdminEditComponent,
+    AdminDeleteComponent,
+    AdminManageComponent
   ],
   imports: [
     BrowserModule,
