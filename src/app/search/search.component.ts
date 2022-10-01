@@ -13,6 +13,8 @@ export class SearchComponent implements OnInit {
   priceFrom: number = 0;
   size: string = 'M';
 
+  isDirty = true;
+
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
       this.color = params['color'];

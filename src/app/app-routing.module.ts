@@ -1,3 +1,5 @@
+import { UnsavedGuard } from './unsaved.guard';
+import { PreferencesCheckGuard } from './preferences-check.guard';
 import { AdminAccessGuard } from './admin-access.guard';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { SuperAdminGuard } from './super-admin.guard';
@@ -21,15 +23,15 @@ import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
 
 
 const routes: Routes = [
-  { path: 'product/:red', component: ProductComponent  },
-  { path: 'product/:productId/photos/:photoId', component: ProductComponent  },
+  { path: 'product/:red', component: ProductComponent },
+  { path: 'product/:productId/photos/:photoId', component: ProductComponent },
   {
     path: 'clients',
     component: ClientsComponent,
     canActivate: [AdminGuard, AuthGuard]
     // canActivate: [AuthGuard]
   },
-  { path: '', redirectTo: 'leads', pathMatch: 'full'},
+  { path: '', redirectTo: 'leads', pathMatch: 'full' },
   { path: 'leads', component: LeadsGridComponent },
   {
     path: 'admin',
@@ -60,33 +62,42 @@ const routes: Routes = [
 
     ]
   },
-  { path: 'search', component: SearchComponent },
+  {
+    path: 'search',
+    component: SearchComponent,
+    canDeactivate: [UnsavedGuard]
+  },
   { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) },
-  { path: '**', component: PageNotFoundComponent} //wildcard route - ESSE SEMPRE TEM QUE VIR POR ÚLTIMO, é tipo o default do switch
+  {
+    path: 'preferences',
+    canLoad: [PreferencesCheckGuard],
+    loadChildren: () => import('./preferences/preferences.module').then(m => m.PreferencesModule)
+  },
+  { path: '**', component: PageNotFoundComponent } //wildcard route - ESSE SEMPRE TEM QUE VIR POR ÚLTIMO, é tipo o default do switch
 
 ];
-  // //we will create all our routes here
-  // {
-  //   path: 'loans',
-  //   component: LoansComponent
-  // },
-  // {
-  //   path: 'add',
-  //   component: AddLoansComponent,
-  //   // outlet: 'addLoan'
-  // },
-  // {
-  //   path: 'loan-types',
-  //   //component: LoanTypesComponent,
-  //   children: [
-  //     {
-  //       path: 'add-loan',
-  //       component: AddLoansComponent,
+// //we will create all our routes here
+// {
+//   path: 'loans',
+//   component: LoansComponent
+// },
+// {
+//   path: 'add',
+//   component: AddLoansComponent,
+//   // outlet: 'addLoan'
+// },
+// {
+//   path: 'loan-types',
+//   //component: LoanTypesComponent,
+//   children: [
+//     {
+//       path: 'add-loan',
+//       component: AddLoansComponent,
 
-  //     }
-  //   ]
+//     }
+//   ]
 
-  // }
+// }
 
 
 @NgModule({
