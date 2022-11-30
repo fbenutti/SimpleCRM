@@ -1,3 +1,4 @@
+import { ResolverGuard } from './resolver.guard';
 import { UnsavedGuard } from './unsaved.guard';
 import { PreferencesCheckGuard } from './preferences-check.guard';
 import { AdminAccessGuard } from './admin-access.guard';
@@ -32,7 +33,13 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   { path: '', redirectTo: 'leads', pathMatch: 'full' },
-  { path: 'leads', component: LeadsGridComponent },
+  { path: 'leads',
+    component: LeadsGridComponent,
+    //Resolve data is loaded before route is activated
+    resolve:{
+      data: ResolverGuard
+    }
+  },
   {
     path: 'admin',
     canActivate: [SuperAdminGuard],
