@@ -74,6 +74,7 @@ const routes: Routes = [
     component: SearchComponent,
     canDeactivate: [UnsavedGuard]
   },
+  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
   { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) },
   {
     path: 'preferences',
