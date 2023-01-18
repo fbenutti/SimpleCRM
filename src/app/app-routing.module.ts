@@ -81,6 +81,16 @@ const routes: Routes = [
     canLoad: [PreferencesCheckGuard],
     loadChildren: () => import('./preferences/preferences.module').then(m => m.PreferencesModule)
   },
+  {
+    path: 'loan-types',
+    component: LoanTypesComponent,
+    children: [
+      {
+        path: 'add-loan',
+        component: AddLoansComponent,
+      }
+    ]
+  },
   { path: '**', component: PageNotFoundComponent } //wildcard route - ESSE SEMPRE TEM QUE VIR POR ÚLTIMO, é tipo o default do switch
 
 ];
@@ -94,18 +104,7 @@ const routes: Routes = [
 //   component: AddLoansComponent,
 //   // outlet: 'addLoan'
 // },
-// {
-//   path: 'loan-types',
-//   //component: LoanTypesComponent,
-//   children: [
-//     {
-//       path: 'add-loan',
-//       component: AddLoansComponent,
 
-//     }
-//   ]
-
-// }
 
 
 @NgModule({

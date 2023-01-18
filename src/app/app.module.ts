@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { UsersComponent } from './users/users.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoansComponent } from './loans/loans.component';
 import { LoanTypesComponent } from './loan-types/loan-types.component';
 import { AddLoansComponent } from './add-loans/add-loans.component';
@@ -46,7 +46,8 @@ import { AdminManageComponent } from './admin-manage/admin-manage.component';
     BrowserAnimationsModule,
     MatButtonModule,
     ProfileModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: PathLocationStrategy}
