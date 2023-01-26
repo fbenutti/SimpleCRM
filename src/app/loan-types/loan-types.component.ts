@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 
@@ -74,12 +74,27 @@ export class LoanTypesComponent implements OnInit {
     )
 
   }
+  trackLoanName(): void {
+    this.addLoanTypeForm.valueChanges.subscribe(data => {
+      console.log(data)
+    });
+  }
 
   ngOnInit(): void { }
 
   addLoanType(){
-    console.log(this.addLoanTypeForm.value);
-    console.log(this.addLoanTypeForm.get('loanType')?.value);
+    //console.log(this.addLoanTypeForm.value);
+    //console.log(this.addLoanTypeForm.get('loanType')?.value);
+    console.log(this.addLoanTypeForm.valid);
+    console.log(this.addLoanTypeForm.invalid);
+    console.log(this.addLoanTypeForm.pending); //Form tá esperando ser submetido
+    console.log(this.addLoanTypeForm.pristine); //Form não foi modificado pelo usuário
+    console.log(this.addLoanTypeForm.dirty); //Form foi modificado pelo usuário
+    console.log(this.addLoanTypeForm.touched);
+    console.log(this.addLoanTypeForm.untouched);
+  }
 
+  resetForm(){
+    this.addLoanTypeForm.reset();
   }
 }
