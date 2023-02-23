@@ -25,6 +25,32 @@
     </div>
   </div>
 
+  <!-- <div class="row">
+    <div class="col-3">
+      <div formArrayName="users">
+        <label>Users</label>
+        <div *ngFor="let control of getControls(addLoanTypeForm, 'users'); let i = index">
+          <input type="text" [formControlName]='i'>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <button class="btn btn-primary mt-4" (click)="addUser()">Add New User</button>
+  <div class="row">
+    <div class="col-3">
+      <div formArrayName="users">
+        <label>Users</label>
+        <div *ngFor="let control of getControls(addLoanTypeForm, 'users'); let i = index;" [formGroupName]="i">
+          <input class="form-control" type="text" formControlName='name'>
+          <input class="form-control" type="text" formControlName='age' (blur)="assignDept(i)">
+          <input class="form-control" type="text" formControlName='dept'>
+          <button  class="btn btn-danger mb-3" (click)="removerUser(i)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <button class="btn btn-primary mt-4" [disabled]="!addLoanTypeForm.valid" (click)="addLoanType()">Add Loan Type</button>
   <button class="btn btn-primary mt-4" (click)="resetForm()">Reset Form</button>
 
